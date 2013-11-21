@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>
+      Trip Planner
+    </title>
+  </head>
+  <body>
+    <div id="header">
+      <a href="/"> <h1> Trip Planner </h1> </a>
+      <div id="menu">
+	{% if "username" in session %}
+	 Welcome <a href = "profile"> {"username"}! </a>
+	 <a href = "/logout"> Logout </a>
+	<% else %>
+	 <form method="POST"> 
+	   Username: <input type="text" name="username">
+	   Password: <input type="password" name="password">
+	   <input type = "submit" name="login" value="Login">
+	 </form>
+	 <a href = "/register"> Sign Up </a>
+      </div>
+    </div>
+    <div id="content">
+    </div>
+  </body>
+</html>

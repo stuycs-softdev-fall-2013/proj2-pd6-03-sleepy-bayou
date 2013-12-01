@@ -4,7 +4,7 @@ from flask import render_template, redirect, url_for, session, request
 app = Flask(__name__)
 app.secret_key = "SUBMIT!"
 
-@app.route("/")
+@app.route("/foodplanner")
 def home():
     return render_template("index.html")
 

@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+<form>
+ <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <style>
+	.locationField, #controls {
+        position: relative;
+        width: 480px;
+      }
+      #autocomplete, #autocomplete2 {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 99%;
+      }
+      .locationField {
+        height: 20px;
+        margin-bottom: 2px;
+      }
+    </style>
+
+  {% if "error" == 1 %}
+   <p class="error"> One or more fields were left blank. </p>
+  {% endif %}
+  <div class="locationField" id="locationField">
+    <input id="autocomplete" placeholder="Enter starting address" type="text">
+  </div>
+  <div class="locationField" id="locationField2">
+    <input id="autocomplete2" placeholder="Enter final destination" type="text">
+  </div>
+
+  {% if "username" in session %}
+  {% else %}
+   <label for="cost"> Price Range: </label> 
+   $<input type="checkbox" name="cost" value="$">
+  {% endif %}
+  <input type = "submit" name="submit" value="Search">
+</form>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzb-imYEF9wzQX6r8mTanmjR3U7kZvGaw&sensor=false&libraries=places"></script>
+<script>
+var placeSearch, autocomplete;
+initialize = function() {
+  document.getElementById("locationField").addEventListener ("focus",geolocate, false);
+  new google.maps.places.Autocomplete((document.getElementById('autocomplete')),{ types: ['geocode'] });
+  document.getElementById("locationField2").addEventListener ("focus",geolocate, false);
+  new google.maps.places.Autocomplete((document.getElementById('autocomplete2')),{ types: ['geocode'] });
+}
+geolocate = function(){
+}
+window.onload = initialize;
+
+
+    </script>  
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "layout" %}
+
+{% block content %}
+<form>
+  <h1> Register </h1>
+  <p> Registering for an account allows you to set your preferences, so that we'll remember you next time! </p>
+  Username: <input type = "text" name = "username"> <br>
+  Password: <input type = "password" name = "password"> <br>
+  {% if "type" == 1 %}
+  <h2> Username is already taken! </h2> <br>
+  {% endif %}
+  {% if "type" == 2 %}
+  <h2> Your username must be at least 4 char long. Your password must be at least 6 char long. </h2> <br>
+  {% endif %}
+  <input type = "submit" name = "button" value = "Register">
+</form>
+{% endblock  %}

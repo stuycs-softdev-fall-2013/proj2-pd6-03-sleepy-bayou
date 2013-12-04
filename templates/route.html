@@ -29,17 +29,81 @@
   {% if "error" == 1 %}
    <p class="error"> One or more fields were left blank. </p>
   {% endif %}
-  <div class="locationField" id="locationField">
-    <input id="autocomplete" placeholder="Enter starting address" type="text">
-  </div>
-  <div class="locationField" id="locationField2">
-    <input id="autocomplete2" placeholder="Enter final destination" type="text">
-  </div>
 
   {% if "username" in session %}
-  {% else %}
-   <label for="cost"> Price Range: </label> 
-   $<input type="checkbox" name="cost" value="$">
+  <h1> Input Your Route! </h1>
+  <div class="ui two column page grid">
+    <div class="equal height row">
+      <div class="column">
+	<div class="ui form segment">
+	  <form action="/route", method="post">
+	    <label> Starting Point </label>
+	    <div class="ui left labeled icon input">
+	      <input name="name" type="text"/>
+	      <i class="location icon"></i>
+	      <div class="ui corner label">
+		<i class="asterisk icon"></i>
+	      </div>
+	    </div>
+
+	    <label> End Point </label>
+	    <div class="ui left labeled icon input">
+	      <input name="name" type="text"/>
+	      <i class="flag icon"></i>
+	      <div class="ui corner label">
+		<i class="asterisk icon"></i>
+	      </div>
+	    </div>
+	  </form>
+	</div> <!--ui form segment-->
+      </div> <!--column-->
+
+      <div class="column">
+	<div class="ui grid">
+	  <div class="row">
+	    <div class="column">
+	      <div class="ui segment">
+		<div class="ui checkbox">
+		  <input name="pizza" type="checkbox">
+		  <label> Pizza </label>
+		</div>
+	      </div>
+	    </div>
+
+	    <div class="column">
+	      <div class="ui segment">
+		<div class="ui checkbox">
+		  <input name="deli" type="checkbox">
+		  <label> Deli </label>
+		</div>
+	      </div>
+	    </div>
+
+	     <div class="column">
+	      <div class="ui segment">
+		<div class="ui checkbox">
+		  <input name="bar" type="checkbox">
+		  <label> Bar </label>
+		</div>
+	       </div>
+	      </div>
+
+
+
+      
+		   
+
+
+
+
+
+
+
+
+  {% else % }
+   <div class="ui error form segment">
+     <div class="ui error message">
+       <p> Please login first! If you don't have an account yet, please <a href="/register"> REGISTER </a> now!</p>
   {% endif %}
   <input type = "submit" name="submit" value="Search">
 </form>

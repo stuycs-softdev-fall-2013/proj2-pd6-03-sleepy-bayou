@@ -3,39 +3,84 @@
   <head>
     <meta charset="utf-8">
     <title> Home </title>
-    <link href="CSS/home.css" rel="stylesheet">
-    <link href="CSS/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" class="ui" href="CSS/semantic/packaged/css/semantic.min.css"/>
+    <link href="CSS/home.css" type="text/css" rel="stylesheet">
+    <link href="CSS/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="CSS/semantic.min.css" type="text/css" rel="stylesheet">
   </head>
 
   <body>
     <div class="jumbotron">
       <h1> Trip Planner </h1>
-      <p> Please login or register to discover all the restaurants waiting for you on your daily routes! </p>
+      <p> New York has thousands of restaurants. Get out there and find someplace new!
+	Please login or register to discover all the restaurants waiting for you on your daily routes! </p>
     </div>
  
+    <div class="ui two column page grid">
+      <div class="equal height row">
+	<div class="column">
+	  <h2> Login </h2>
+	  <div class="ui form segment">
+	    <form action="/login", method="post">
+	      <div class="field">
+		<label> Username </label>
+		<div class="ui left labeled icon input">
+		  <input placeholder="Username" type="text">
+		  <i class="user icon"></i>
+		  <div class="ui corner label">
+		    <i class="icon asterisk"></i>
+		  </div>
+		</div>
+		<label> Password </label>
+		<div class="ui left labeled icon input">
+		  <input placeholder="Password" type="password">
+		  <i class="lock icon"></i>
+		  <div class="ui corner label">
+		    <i class="icon asterisk"></i>
+		  </div>
+		</div>
+	      </div> <!--field-->
+	      <input type = "submit" class="ui blue submit button" value="Login"/>
+	    </form>
+	  </div> <!--ui form segment-->
+	</div> <!--column-->
+	  
+	  <div class="column">
+	    <h3> Register </h3>
+	    <div class="ui form segment">
+	      <form action="/register", method="post">
+		<div class="field">
+		  <label>E-mail</label>
+		  <div class="ui left labeled icon input">
+		    <input name="name" type="text"/>
+		    <i class="mail icon"></i>
+		    <div class="ui corner label">
+		      <i class="asterisk icon"></i>
+		    </div>
+		  </div>
 
-      <div class="ui form segment">
-	<form action="/login", method="post">
-	  <div class="field">
-	    <label> Username </label>
-	    <div class="ui left labeled icon input">
-	      <input placeholder="Username" type="text">
-	      <i class="user icon"></i>
-	      <div class="ui corner label">
-		<i class="icon asterisk"></i>
-	      </div>
-	    </div>
-	    <label> Password </label>
-	    <div class="ui left labeled icon input">
-	      <input placeholder="Password" type="password">
-	      <i class="lock icon"></i>
-	      <div class="ui corner label">
-		<i class="icon asterisk"></i>
-	      </div>
-	    </div>
-	   </div>
-	  <input type = "submit" class="ui blue submit button" value="Login"/>
-	</form>
-      </div>
-      </div>
+		  <label>Username</label>
+		  <div class="ui left labeled icon input">
+		    <input name="name" type="text"/>
+		    <i class="user icon"></i>
+		    <div class="ui corner label">
+		      <i class="asterisk icon"></i>
+		    </div>
+		  </div>
+
+		  <label>Password</label>
+		  <div class="ui left labeled icon input">
+		    <input name="Password" type="password"/>
+		    <i class="lock icon"></i>
+		    <div class="ui corner label">
+		      <i class="asterisk icon"></i>
+		    </div>
+		 </div>
+		 <input type="submit" class="ui blue submit button" value="Submit" />
+		</div> <!--field-->
+	      </form>
+	    </div> <!--ui form segment-->
+	  </div> <!--center aligned column-->
+	 </div> <!-- equal height row -->
+	</div> <!-- two column-->
+    </body>
+	  

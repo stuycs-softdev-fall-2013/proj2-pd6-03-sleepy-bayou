@@ -1,4 +1,13 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Trip Planner</title>
+    <link href="CSS/layout.css" rel="stylesheet">
+    <link href="CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="CSS/semantic.min.css" rel="stylesheet">
+  </head>
+
 {% block content %}
 <form method = "POST">
  <style>
@@ -32,9 +41,7 @@
 
   {% if "username" in session %}
   <h1> Input Your Route! </h1>
-  <div class="ui two column page grid">
-    <div class="equal height row">
-      <div class="column">
+
 	<div class="ui form segment">
 	  <form action="/route", method="post">
 	    <label> Starting Point </label>
@@ -54,58 +61,17 @@
 		<i class="asterisk icon"></i>
 	      </div>
 	    </div>
+	    <input type="submit" class="ui blue submit button" value="Submit"/>
 	  </form>
 	</div> <!--ui form segment-->
-      </div> <!--column-->
-
-      <div class="column">
-	<div class="ui grid">
-	  <div class="row">
-	    <div class="column">
-	      <div class="ui segment">
-		<div class="ui checkbox">
-		  <input name="pizza" type="checkbox">
-		  <label> Pizza </label>
-		</div>
-	      </div>
-	    </div>
-
-	    <div class="column">
-	      <div class="ui segment">
-		<div class="ui checkbox">
-		  <input name="deli" type="checkbox">
-		  <label> Deli </label>
-		</div>
-	      </div>
-	    </div>
-
-	     <div class="column">
-	      <div class="ui segment">
-		<div class="ui checkbox">
-		  <input name="bar" type="checkbox">
-		  <label> Bar </label>
-		</div>
-	       </div>
-	      </div>
-
-
 
       
-		   
-
-
-
-
-
-
-
 
   {% else % }
    <div class="ui error form segment">
      <div class="ui error message">
        <p> Please login first! If you don't have an account yet, please <a href="/register"> REGISTER </a> now!</p>
   {% endif %}
-  <input type = "submit" name="submit" value="Search">
 </form>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzb-imYEF9wzQX6r8mTanmjR3U7kZvGaw&sensor=false&libraries=places"></script>
 <script>

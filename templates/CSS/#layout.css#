@@ -1,0 +1,14 @@
+body
+{
+background-color: #e0e0e0;
+}
+
+h1
+{
+letter-spacing: 3px;
+text-align: center;
+font-family: "Avantgarde", sans-serif;
+color: white;
+font-size: 400%;
+}
+

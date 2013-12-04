@@ -6,7 +6,7 @@ app.secret_key = "SUBMIT!"
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("home.html")
 
 @app.route("/register",methods=['GET','POST'])
 def register():

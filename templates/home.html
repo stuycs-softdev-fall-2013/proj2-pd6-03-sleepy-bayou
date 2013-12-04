@@ -49,15 +49,6 @@
 	    <div class="ui form segment">
 	      <form action="register", method="post">
 		<div class="field">
-		  <label>E-mail</label>
-		  <div class="ui left labeled icon input">
-		    <input name="name" type="text"/>
-		    <i class="mail icon"></i>
-		    <div class="ui corner label">
-		      <i class="asterisk icon"></i>
-		    </div>
-		  </div>
-
 		  <label>Username</label>
 		  <div class="ui left labeled icon input">
 		    <input name="name" type="text"/>
@@ -75,6 +66,15 @@
 		      <i class="asterisk icon"></i>
 		    </div>
 		 </div>
+
+		 <label>Confirm Password</label>
+		 <div class="ui left labeled icon input">
+		   <input name="Confirm Password" type="password"/>
+		   <i class="certificate icon"></i>
+		   <div class="ui corner label">
+		     <i class="asterisk icon"></i>
+		   </div>
+		 </div>
 		 <input type="submit" class="ui blue submit button" value="Submit" />
 		</div> <!--field-->
 	      </form>
@@ -82,5 +82,28 @@
 	  </div> <!--center aligned column-->
 	 </div> <!-- equal height row -->
 	</div> <!-- two column-->
+
+    {% if type==1 %}
+    <div class="ui error form segment">
+      <div class="ui error message">
+	<p id="error">Sorry, this username is already taken! Please choose another.</p>
+      </div>
+    </div>
+
+    {% if type==2 %}
+    <div class="ui error form segment">
+      <div class="ui error message">
+	<p id="error">Your username must be at least 4 charactersl ong and your password must be at least 6 characters long.</p>
+      </div>
+    </div>
+
+    {% if type==3 %}
+    <div class="ui error form segment">
+      <div class="ui error message">
+	<p id="error">Your passwords did not match. Please try again.</p>
+
+    {% endif %}
+
+    
     </body>
 	  

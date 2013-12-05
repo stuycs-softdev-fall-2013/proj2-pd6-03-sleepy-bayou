@@ -50,13 +50,17 @@
 	    <h3> Register </h3>
 	    <div class="ui form segment">
 	      <form action="register", method="post">
+		   if request.method == 'POST':
+			  if 'add' in request.form:
+				   return redirect(url_for('index'))
+			  elif 'remove' in request.form:
+        return redirect(url_for('index'))
 		<div class="field">
 		  <label>Username</label>
 		  <div class="ui left labeled icon input">
 		    <input name="name" type="text"/>
 		    <i class="user icon"></i>
 		    <div class="ui corner label">
-		    <a class="trying this", href="/register" >  </a>
 		      <i class="asterisk icon"></i>
 		    </div>
 		  </div>

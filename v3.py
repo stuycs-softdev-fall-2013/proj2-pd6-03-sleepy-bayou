@@ -1,5 +1,4 @@
 from splinter import Browser
-from bs4 import BeautifulSoup
 from time import sleep
 def getRoutes(start,end):
     browser = Browser(

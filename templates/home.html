@@ -90,18 +90,19 @@
       </div>
     </div>
 
-    {% if type==2 %}
+    {% elif type==2 %}
     <div class="ui error form segment">
       <div class="ui error message">
 	<p id="error">Your username must be at least 4 character long and your password must be at least 6 characters long.</p>
       </div>
     </div>
     
-    {% if type==3 %}
+    {% elif type==3 %}
     <div class="ui error form segment">
       <div class="ui error message">
 	<p id="error">Your passwords did not match. Please try again.</p>
-	
+      </div>
+    </div>
 	{% endif %}
 	
 	

@@ -57,11 +57,12 @@ def route():
         #fields were left blank
         if start == None or end == None:
             return render_template("route.html", error=1)
-        results = utils.compute(start, end)
+        stationList = hopstopScraper.getRoutes(start, end)
+        results = yelpAPI.process(stationList)
         return redirect("/results")
     else:
         return render_template("route.html")
-                
+
 
 
 if __name__ == "__main__":

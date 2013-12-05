@@ -8,7 +8,7 @@ app.secret_key = "SUBMIT!"
 def home():
     return render_template("home.html")
 
-@app.route("/register.html",methods=['GET','POST'])
+@app.route("/register",methods=['GET','POST'])
 def register():
     if request.method=="POST":
         if request.form["password"]==request.form["password2"]:
@@ -28,7 +28,7 @@ def register():
             return render_template("register.html",type=3)
     else:
         return render_template("register.html")
-@app.route("/login.html")
+@app.route("/login")
 def login():
     if request.method=="POST":
         print("done")
@@ -44,12 +44,12 @@ def login():
         if request.args.get("type") == "2":
             return render_template("login.html",type=2)
         return render_template("login.html")
-@app.route("/logout.html")
+@app.route("/logout")
 def logout():
     session.pop("username",None)
     return redirect("/?type=2")
 
-@app.route("/route.html")
+@app.route("/route")
 def route():
     if request.method=="POST":
         start = request.form["start"]

@@ -6,7 +6,7 @@ db = c.users
 def authorize(username, password):
     user = db.Collections.find_one({'username':username, 'password':password})
     if user:
-        return user["id"]
+        return 0
     else:
         return None
 def userExists(username):

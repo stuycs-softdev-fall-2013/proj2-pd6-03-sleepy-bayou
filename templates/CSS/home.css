@@ -1,4 +1,32 @@
 body
 {
-background-color: red;
+background-color: #e0e0e0;
+}
+
+#error
+{
+font-size: 200%;
+color: black;
+font-weight: bold;
+}
+
+.top
+{
+background:url(static/nyskyline.jpeg) center no-repeat;
+height: 200px;
+}
+
+h1
+{
+font-size: 200%;
+color: white;
+font-weight:bold;
+font-family: "Avantgarde", sans-serif;
+}
+
+#top-para
+{
+font-size: 200%;
+color: white;
+font-family; "Avantgarde", sans-serif;
 }

@@ -30,11 +30,9 @@
 	
     {% if type == 1 %}
     <h2> Username is already taken! </h2> <br>
-  {% endif %}
-    {% if type == 2 %}
+    {% elif type == 2 %}
     <h2> Your username must be at least 4 char long. Your password must be at least 6 char long. </h2> <br>
-    {% endif %}
-  {% if type == 3 %}
+    {% elif type == 3 %}
     <h2> Password Mismatch </h2> <br>
     {% endif %}
     <input type = "submit" name = "button" value = "Register">

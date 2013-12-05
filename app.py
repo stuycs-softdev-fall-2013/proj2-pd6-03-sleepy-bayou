@@ -13,7 +13,7 @@ def register():
     if request.method=="POST":
         if request.form["password"]==request.form["password2"]:
             #createUser will return a number depending on what the error was
-            result=utils.createUser(str(request.form["username"].lower()),str(request.form["password"]))
+            result=utils.createUser(request.form["username"].lower(),request.form["password"])
             #success. Login page will have confirmation message
             if result==0:
                 return redirect("/login?type=2")

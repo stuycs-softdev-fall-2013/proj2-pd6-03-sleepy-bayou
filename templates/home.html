@@ -14,6 +14,14 @@
       <h1 id="heading"> TRIP PLANNER </h1>
       <br>
       <p id="top-para"> New York has thousands of restaurants. Get out there and find someplace new! </p>
+      {% if "username" in session %}
+      <!--Code should be added here-->
+      <!--Search Now-->
+      <!--User Profile (OPTIONAL)-->
+      <!--About the code (optional, but easy)-->
+
+
+      {% else %}
       <p id="top-para2">Please login or register to discover all the restaurants waiting for you on your daily routes! </p>
       </div>
  
@@ -107,6 +115,6 @@
     </div>
 	{% endif %}
 	
-	
+    {% endif %}
     </body>
   

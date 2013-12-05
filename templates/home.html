@@ -26,7 +26,7 @@
 		<div class="field">
 		  <label> Username </label>
 		  <div class="ui left labeled icon input">
-		    <input placeholder="Username" type="text">
+		    <input name="username" placeholder="Username" type="text">
 		    <i class="user icon"></i>
 		    <div class="ui corner label">
 		      <i class="icon asterisk"></i>
@@ -34,7 +34,7 @@
 		  </div>
 		  <label> Password </label>
 		  <div class="ui left labeled icon input">
-		    <input placeholder="Password" type="password">
+		    <input name="password" placeholder="Password" type="password">
 		    <i class="lock icon"></i>
 		    <div class="ui corner label">
 		      <i class="icon asterisk"></i>
@@ -49,16 +49,11 @@
 	  <div class="column">
 	    <h3> Register </h3>
 	    <div class="ui form segment">
-	      <form action="register", method="post">
-		   if request.method == 'POST':
-			  if 'add' in request.form:
-				   return redirect(url_for('index'))
-			  elif 'remove' in request.form:
-        return redirect(url_for('index'))
+	      <form action="register", method="POST">
 		<div class="field">
 		  <label>Username</label>
 		  <div class="ui left labeled icon input">
-		    <input name="name" type="text"/>
+		    <input name="username" type="text"/>
 		    <i class="user icon"></i>
 		    <div class="ui corner label">
 		      <i class="asterisk icon"></i>
@@ -67,7 +62,7 @@
 		  
 		  <label>Password</label>
 		  <div class="ui left labeled icon input">
-		    <input name="Password" type="password"/>
+		    <input name="password" type="password"/>
 		    <i class="lock icon"></i>
 		    <div class="ui corner label">
 		      <i class="asterisk icon"></i>
@@ -76,7 +71,7 @@
 		  
 		 <label>Confirm Password</label>
 		 <div class="ui left labeled icon input">
-		   <input name="Confirm Password" type="password"/>
+		   <input name="confirmpassword" type="password"/>
 		   <i class="certificate icon"></i>
 		   <div class="ui corner label">
 		     <i class="asterisk icon"></i>

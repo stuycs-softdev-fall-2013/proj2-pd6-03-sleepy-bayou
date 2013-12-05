@@ -10,32 +10,34 @@ def home():
 
 @app.route("/register",methods=['GET','POST'])
 def register():
-    if request.method=="POST":
-        if request.form["password"]==request.form["password2"]:
-            #createUser will return a number depending on what the error was
-            result=utils.createUser(request.form["username"].lower(),request.form["password"])
-            #success. Login page will have confirmation message
-            if result==0:
-                return redirect("/login?type=2")
-            #username is already taken
-            elif result==1:
-                return render_template("register.html",type=1)
-            #username or pw is invalid
-            else:
-                return render_template("register.html",type=2)
-        #pw mismatch
-        else:
-            return render_template("register.html",type=3)
-    else:
+    if request.method == "GET":
         return render_template("register.html")
+    print("foo")
+    if request.form.get("password","")==request.form.get("confirmpassword",""):
+        print("foo")
+            #createUser will return a number depending on what the error was
+        result=utils.createUser(request.form.get("username","").lower(),request.form.get("password",""))
+            #success. Login page will have confirmation message
+        if result==0:
+            return redirect("/login?type=2")
+            #username is already taken
+        elif result==1:
+            return render_template("register.html",type=1)
+            #username or pw is invalid
+        else: 
+            return render_template("register.html",type=2)
+        #pw mismatch
+    else:
+        print("foo")
+        return render_template("register.html",type=3)
 @app.route("/login",methods=['GET','POST'])
 def login():
     if request.method=="POST":
         print("done")
-        result = utils.authorize(str(request.form["username"]).lower(), str(request.form["password"]))
+        result = utils.authorize(str(request.form.get("username","")).lower(), str(request.form.get("password","")))
         #successful login
         if result == 0:  
-            session["username"] = request.form["username"]
+            session["username"] = request.form.get("username","")
             return redirect("/?type=2")
         #failed attempt!
         else:

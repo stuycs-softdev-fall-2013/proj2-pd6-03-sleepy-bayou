@@ -13,11 +13,12 @@ def breakfast_search(searchkey, neighborhood):
 
 def lunch_search(searchkey, neighborhood):
     consumer = oauth2.Consumer(consumer_key, consumer_secret)
-    url = 'http://api.yelp.com/v2/search?term=lunch'+ '+' + searchkey + '&location=nyc' + '+' + neighborhood
+    url = 'http://api.yelp.com/v2/search?term=' + searchkey + '&location=nyc' + '+' + neighborhood
     return oauth2.Request('GET', url, {})
 
 def dinner_search(searchkey, neighborhood):
     consumer = oauth2.Consumer(consumer_key, consumer_secret)
-    url = 'http://api.yelp.com/v2/search?termdinner'+ '+' + searchkey + '&location=nyc' + '+' + neighborhood
+    url = 'http://api.yelp.com/v2/search?term=dinner'+ '+' + searchkey + '&location=nyc' + '+' + neighborhood
     return oauth2.Request('GET', url, {})
 
+print(lunch_search("chinese", "flushing"))

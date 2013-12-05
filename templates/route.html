@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<div id="bg">
 <form method = "POST">
  <style>
       html, body, #map-canvas {
@@ -40,13 +41,15 @@
 	    <input type="submit" class="ui blue submit button" value="Submit"/>
 	  </form>
 	</div> <!--ui form segment-->
-
+	</div>
       
 
-  {% else % }
+  {% else %}
    <div class="ui error form segment">
      <div class="ui error message">
-       <p> Please login first! If you don't have an account yet, please <a href="/register"> REGISTER </a> now!</p>
+       <p> Please login first! If you don't have an account yet, please <a href="/"> REGISTER </a> now!</p>
+     </div>
+   </div>
   {% endif %}
 </form>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzb-imYEF9wzQX6r8mTanmjR3U7kZvGaw&sensor=false&libraries=places"></script>

@@ -10,22 +10,6 @@
       }
     </style>
     <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-    <style>
-	.locationField, #controls {
-        position: relative;
-        width: 480px;
-      }
-      #autocomplete, #autocomplete2 {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 99%;
-      }
-      .locationField {
-        height: 20px;
-        margin-bottom: 2px;
-      }
-    </style>
 
   {% if "error" == 1 %}
    <p class="error"> One or more fields were left blank. </p>
@@ -37,8 +21,8 @@
 	<div class="ui form segment">
 	  <form action="/route", method="post">
 	    <label> Starting Point </label>
-	    <div class="ui left labeled icon input">
-	      <input name="name" type="text"/>
+	    <div class="ui left labeled icon input" id="locationField">
+	      <input name="name" id="autocomplete" type="text"/>
 	      <i class="location icon"></i>
 	      <div class="ui corner label">
 		<i class="asterisk icon"></i>
@@ -46,8 +30,8 @@
 	    </div>
 
 	    <label> End Point </label>
-	    <div class="ui left labeled icon input">
-	      <input name="name" type="text"/>
+	    <div class="ui left labeled icon input" id="locationField2">
+	      <input name="name" id="autocomplete2" type="text"/>
 	      <i class="flag icon"></i>
 	      <div class="ui corner label">
 		<i class="asterisk icon"></i>

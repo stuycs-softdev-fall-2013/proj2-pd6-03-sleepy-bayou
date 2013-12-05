@@ -10,10 +10,11 @@ color: black;
 font-weight: bold;
 }
 
-.top
+.jumbotron
 {
-background:url(static/nyskyline.jpeg) center no-repeat;
-height: 200px;
+background:url(static/nyskyline.jpg);
+background-size: 100% 150%;
+background-repeat: no-repeat;
 }
 
 h1
@@ -28,5 +29,12 @@ font-family: "Avantgarde", sans-serif;
 {
 font-size: 200%;
 color: white;
-font-family; "Avantgarde", sans-serif;
+font-family: "Avantgarde", sans-serif;
+}
+
+#top-para2
+{
+font-size: 100%;
+color:white;
+font-family: "Avantgarde", sans-serif;
 }

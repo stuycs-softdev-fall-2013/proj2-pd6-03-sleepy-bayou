@@ -13,7 +13,7 @@ font-weight: bold;
 
 .jumbotron
 {
-background:url(static/nyskyline.jpg);
+background-image:url(/static/nyskyline.jpg);
 background-size: 100% 150%;
 background-repeat: no-repeat;
 }

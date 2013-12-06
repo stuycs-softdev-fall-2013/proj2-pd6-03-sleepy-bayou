@@ -1,0 +1,246 @@
+{
+  "businesses": [
+    {
+      "categories": [
+        [
+          "Korean", 
+          "korean"
+        ]
+      ], 
+      "display_phone": "+1-212-695-8222", 
+      "id": "cho-dang-gol-korean-restaurant-new-york", 
+      "image_url": "http://s3-media4.ak.yelpcdn.com/bphoto/pmeWRUl9yi-FMrgs9NjHPw/ms.jpg", 
+      "is_claimed": true, 
+      "is_closed": false, 
+      "location": {
+        "address": [
+          "55 W 35th St"
+        ], 
+        "city": "New York", 
+        "country_code": "US", 
+        "cross_streets": "Avenue Of The Americas & 5th Ave", 
+        "display_address": [
+          "55 W 35th St", 
+          "(b/t Avenue Of The Americas & 5th Ave)", 
+          "Midtown West", 
+          "New York, NY 10001"
+        ], 
+        "neighborhoods": [
+          "Midtown West"
+        ], 
+        "postal_code": "10001", 
+        "state_code": "NY"
+      }, 
+      "menu_date_updated": 1383331273, 
+      "menu_provider": "single_platform", 
+      "mobile_url": "http://m.yelp.com/biz/cho-dang-gol-korean-restaurant-new-york", 
+      "name": "Cho Dang Gol Korean Restaurant", 
+      "phone": "2126958222", 
+      "rating": 4.0, 
+      "rating_img_url": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+      "rating_img_url_large": "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+      "rating_img_url_small": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+      "review_count": 345, 
+      "snippet_image_url": "http://s3-media2.ak.yelpcdn.com/photo/ZZjUorAjy78063rXai62rg/ms.jpg", 
+      "snippet_text": "Their regular and beef soondubu is really good! However, their seafood tofu soup was a bit off. Tasted like it wasn't seasoned right. Also, I wouldn't order...", 
+      "url": "http://www.yelp.com/biz/cho-dang-gol-korean-restaurant-new-york"
+    }, 
+    {
+      "categories": [
+        [
+          "Korean", 
+          "korean"
+        ]
+      ], 
+      "display_phone": "+1-212-244-1115", 
+      "id": "woorijip-authentic-korean-food-new-york", 
+      "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/dURqdFQ_91YPgSBqu-yCHA/ms.jpg", 
+      "is_claimed": false, 
+      "is_closed": false, 
+      "location": {
+        "address": [
+          "12 W 32nd St"
+        ], 
+        "city": "New York", 
+        "country_code": "US", 
+        "cross_streets": "Broadway & 5th Ave", 
+        "display_address": [
+          "12 W 32nd St", 
+          "(b/t Broadway & 5th Ave)", 
+          "Midtown West", 
+          "New York, NY 10001"
+        ], 
+        "neighborhoods": [
+          "Midtown West", 
+          "Koreatown"
+        ], 
+        "postal_code": "10001", 
+        "state_code": "NY"
+      }, 
+      "menu_date_updated": 1383331206, 
+      "menu_provider": "single_platform", 
+      "mobile_url": "http://m.yelp.com/biz/woorijip-authentic-korean-food-new-york", 
+      "name": "Woorijip Authentic Korean Food", 
+      "phone": "2122441115", 
+      "rating": 4.0, 
+      "rating_img_url": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+      "rating_img_url_large": "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+      "rating_img_url_small": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+      "review_count": 1218, 
+      "snippet_image_url": "http://s3-media2.ak.yelpcdn.com/photo/wZhWbRa-cdY8tP3Sr_ZFMw/ms.jpg", 
+      "snippet_text": "I dig this place. They have a great selection of buffet style Korean food... for decent prices, which is seemingly hard to find. Why? I'm not sure, but...", 
+      "url": "http://www.yelp.com/biz/woorijip-authentic-korean-food-new-york"
+    }, 
+    {
+      "categories": [
+        [
+          "Middle Eastern", 
+          "mideastern"
+        ], 
+        [
+          "Persian/Iranian", 
+          "persian"
+        ]
+      ], 
+      "display_phone": "+1-212-696-0300", 
+      "id": "ravagh-persian-grill-new-york-2", 
+      "image_url": "http://s3-media4.ak.yelpcdn.com/bphoto/SetriFQhEIZ5NyRqgNpSQA/ms.jpg", 
+      "is_claimed": false, 
+      "is_closed": false, 
+      "location": {
+        "address": [
+          "11 E 30th St"
+        ], 
+        "city": "New York", 
+        "country_code": "US", 
+        "cross_streets": "5th Ave & Madison Ave", 
+        "display_address": [
+          "11 E 30th St", 
+          "(b/t 5th Ave & Madison Ave)", 
+          "Midtown East", 
+          "New York, NY 10016"
+        ], 
+        "neighborhoods": [
+          "Midtown East"
+        ], 
+        "postal_code": "10016", 
+        "state_code": "NY"
+      }, 
+      "menu_date_updated": 1383683558, 
+      "menu_provider": "single_platform", 
+      "mobile_url": "http://m.yelp.com/biz/ravagh-persian-grill-new-york-2", 
+      "name": "Ravagh Persian Grill", 
+      "phone": "2126960300", 
+      "rating": 4.0, 
+      "rating_img_url": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+      "rating_img_url_large": "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+      "rating_img_url_small": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+      "review_count": 242, 
+      "snippet_image_url": "http://s3-media1.ak.yelpcdn.com/photo/NEN8g3L0QMqTw0dGnqhEGQ/ms.jpg", 
+      "snippet_text": "THIS PLACE IS AWESOME!!!! I've had Middle Eastern food many times before, but not Persian. Came here with my dad & sister for mine n my sister's birthday...", 
+      "url": "http://www.yelp.com/biz/ravagh-persian-grill-new-york-2"
+    }, 
+    {
+      "categories": [
+        [
+          "Szechuan", 
+          "szechuan"
+        ]
+      ], 
+      "display_phone": "+1-212-683-2779", 
+      "id": "la-vie-en-szechuan-manhattan", 
+      "image_url": "http://s3-media1.ak.yelpcdn.com/bphoto/4fcl-q1fOGvpQXC2e63rmg/ms.jpg", 
+      "is_claimed": true, 
+      "is_closed": false, 
+      "location": {
+        "address": [
+          "14 E 33rd St"
+        ], 
+        "city": "Manhattan", 
+        "country_code": "US", 
+        "cross_streets": "5th Ave & Madison Ave", 
+        "display_address": [
+          "14 E 33rd St", 
+          "(b/t 5th Ave & Madison Ave)", 
+          "Midtown East", 
+          "Manhattan, NY 10016"
+        ], 
+        "neighborhoods": [
+          "Midtown East"
+        ], 
+        "postal_code": "10016", 
+        "state_code": "NY"
+      }, 
+      "menu_date_updated": 1383574468, 
+      "menu_provider": "single_platform", 
+      "mobile_url": "http://m.yelp.com/biz/la-vie-en-szechuan-manhattan", 
+      "name": "La Vie En Szechuan", 
+      "phone": "2126832779", 
+      "rating": 3.5, 
+      "rating_img_url": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png", 
+      "rating_img_url_large": "http://s3-media3.ak.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png", 
+      "rating_img_url_small": "http://s3-media1.ak.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png", 
+      "review_count": 100, 
+      "snippet_image_url": "http://s3-media4.ak.yelpcdn.com/photo/AJW8OQ_wYXm8ioisjGlwNg/ms.jpg", 
+      "snippet_text": "So this is the place, the best Szechuan restaurant in town, including Flushing, for sure.\n\nLiving in Szechuan province for 18 years since I was born, I am...", 
+      "url": "http://www.yelp.com/biz/la-vie-en-szechuan-manhattan"
+    }, 
+    {
+      "categories": [
+        [
+          "Korean", 
+          "korean"
+        ]
+      ], 
+      "display_phone": "+1-212-967-1678", 
+      "id": "food-gallery-32-new-york", 
+      "image_url": "http://s3-media2.ak.yelpcdn.com/bphoto/L2e0J6EiopmSfPWu7DWeSA/ms.jpg", 
+      "is_claimed": false, 
+      "is_closed": false, 
+      "location": {
+        "address": [
+          "11 W 32nd St"
+        ], 
+        "city": "New York", 
+        "country_code": "US", 
+        "cross_streets": "Broadway & 5th Ave", 
+        "display_address": [
+          "11 W 32nd St", 
+          "(b/t Broadway & 5th Ave)", 
+          "Midtown West", 
+          "New York, NY 10001"
+        ], 
+        "neighborhoods": [
+          "Midtown West", 
+          "Koreatown"
+        ], 
+        "postal_code": "10001", 
+        "state_code": "NY"
+      }, 
+      "menu_date_updated": 1383567526, 
+      "menu_provider": "single_platform", 
+      "mobile_url": "http://m.yelp.com/biz/food-gallery-32-new-york", 
+      "name": "Food Gallery 32", 
+      "phone": "2129671678", 
+      "rating": 4.0, 
+      "rating_img_url": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+      "rating_img_url_large": "http://s3-media2.ak.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+      "rating_img_url_small": "http://s3-media4.ak.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+      "review_count": 341, 
+      "snippet_image_url": "http://s3-media3.ak.yelpcdn.com/photo/IkYib6ll5okQWLfDXAh1Jg/ms.jpg", 
+      "snippet_text": "Food Gallery 32 is not only convenient food court for those working in midtown, but my wildest Korean food fantasies just came true.  I shambled into the...", 
+      "url": "http://www.yelp.com/biz/food-gallery-32-new-york"
+    }
+  ], 
+  "region": {
+    "center": {
+      "latitude": 40.74788355, 
+      "longitude": -73.9854235
+    }, 
+    "span": {
+      "latitude_delta": 0.004967269999994528, 
+      "longitude_delta": 0.0025200999999981377
+    }
+  }, 
+  "total": 335
+}

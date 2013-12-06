@@ -12,40 +12,34 @@ def home():
 def register():
     if request.method == "GET":
         return render_template("register.html")
-    print("foo")
-    if request.form.get("password","")==request.form.get("confirmpassword",""):
-        print("foo")
+    if request.form.get("password_register","")==request.form.get("confirmpassword_register",""):
             #createUser will return a number depending on what the error was
-        result=utils.createUser(request.form.get("username","").lower(),request.form.get("password",""))
+        result=utils.createUser(request.form.get("username_register","").lower(),request.form.get("password_register",""))
             #success. Login page will have confirmation message
         if result==0:
-            return redirect("route.html")
+            return render_template("home.html",type_register=0)
             #username is already taken
         elif result==1:
-            return render_template("home.html",type=1)
+            return render_template("home.html",type_register=1)
             #username or pw is invalid
         else: 
-            return render_template("home.html",type=2)
+            return render_template("home.html",type_register=2)
         #pw mismatch
     else:
-        print("foo")
-        return render_template("home.html",type=3)
+        return render_template("home.html",type_register=3)
 @app.route("/login",methods=['GET','POST'])
 def login():
     if request.method=="POST":
-        print("done")
-        result = utils.authorize(str(request.form.get("username","")).lower(), str(request.form.get("password","")))
+        result = utils.authorize(str(request.form.get("username_login","")).lower(), str(request.form.get("password_login","")))
         #successful login
         if result == 0:  
-            session["username"] = request.form.get("username","")
+            session["username"] = request.form.get("username_login","")
             return redirect("profile.html")
         #failed attempt!
         else:
-            return render_template("home.html",type=1)
+            return render_template("home.html",type_login=1)
     else:
-        if request.args.get("type") == "2":
-            return render_template("profile.html",type=2)
-        return render_template("profile.html")
+        return render_template("home.html")
 @app.route("/logout")
 def logout():
     session.pop("username",None)

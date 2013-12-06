@@ -14,6 +14,13 @@
       <h1 id="heading"> TRIP PLANNER </h1>
       <br>
       <p id="top-para"> New York has thousands of restaurants. Get out there and find someplace new! </p>
+      {% if "username" in session %}
+      <div class=""> <!-- contains link to route-->
+	
+      </div>
+
+
+      {% else %}
       <p id="top-para2">Please login or register to discover all the restaurants waiting for you on your daily routes! </p>
       </div>
  
@@ -22,11 +29,11 @@
 	  <div class="column">
 	    <h2> Login </h2>
 	    <div class="ui form segment">
-	      <form action="login", method="post">
+	      <form action="login" method="post">
 		<div class="field">
 		  <label> Username </label>
 		  <div class="ui left labeled icon input">
-		    <input name="username" placeholder="Username" type="text">
+		    <input name="username_login" placeholder="Username" type="text">
 		    <i class="user icon"></i>
 		    <div class="ui corner label">
 		      <i class="icon asterisk"></i>
@@ -34,7 +41,7 @@
 		  </div>
 		  <label> Password </label>
 		  <div class="ui left labeled icon input">
-		    <input name="password" placeholder="Password" type="password">
+		    <input name="password_login" placeholder="Password" type="password">
 		    <i class="lock icon"></i>
 		    <div class="ui corner label">
 		      <i class="icon asterisk"></i>
@@ -42,7 +49,7 @@
 		  </div>
 		</div> <!--field-->
 		<input type = "submit" class="ui blue submit button" value="Login"/>
-		{% if type==1 %}
+		{% if type_login ==1 %}
 		<div class="ui error form segment">
 		  <div class="ui error message">
 		    <p id="error"> Your password did not match your username. Please try again.</p>
@@ -56,11 +63,11 @@
 	  <div class="column">
 	    <h3> Register </h3>
 	    <div class="ui form segment">
-	      <form action="register", method="POST">
+	      <form action="register" method="POST">
 		<div class="field">
 		  <label>Username</label>
 		  <div class="ui left labeled icon input">
-		    <input name="username" type="text"/>
+		    <input name="username_register" type="text"/>
 		    <i class="user icon"></i>
 		    <div class="ui corner label">
 		      <i class="asterisk icon"></i>
@@ -69,7 +76,7 @@
 		  
 		  <label>Password</label>
 		  <div class="ui left labeled icon input">
-		    <input name="password" type="password"/>
+		    <input name="password_register" type="password"/>
 		    <i class="lock icon"></i>
 		    <div class="ui corner label">
 		      <i class="asterisk icon"></i>
@@ -78,28 +85,30 @@
 		  
 		 <label>Confirm Password</label>
 		 <div class="ui left labeled icon input">
-		   <input name="confirmpassword" type="password"/>
+		   <input name="confirmpassword_register" type="password"/>
 		   <i class="certificate icon"></i>
 		   <div class="ui corner label">
 		     <i class="asterisk icon"></i>
 		   </div>
 		 </div>
 		 <input type="submit" class="ui blue submit button" value="Submit" />
-		 {% if type==1 %}
+		 {% if type_register==0 %}
+		 <p color="green"> Registration Successful!</p>
+		 {% elif type_register==1 %}
 		 <div class="ui error form segment">
 		   <div class="ui error message">
 		     <p id="error">Sorry, this username is already taken! Please choose another.</p>
 		   </div>
 		 </div>
 		 
-		 {% elif type==2 %}
+		 {% elif type_register==2 %}
 		 <div class="ui error form segment">
 		   <div class="ui error message">
 		     <p id="error">Your username must be at least 4 character long and your password must be at least 6 characters long.</p>
 		   </div>
 		 </div>
 		 
-		 {% elif type==3 %}
+		 {% elif type_register==3 %}
 		 <div class="ui error form segment">
 		   <div class="ui error message">
 		     <p id="error">Your passwords did not match. Please try again.</p>
@@ -112,6 +121,6 @@
 	  </div> <!--center aligned column-->
 	</div> <!-- equal height row -->
       </div> <!-- two column-->
-	
+      {% endif %}
     </body>
   

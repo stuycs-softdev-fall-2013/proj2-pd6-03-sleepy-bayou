@@ -34,7 +34,7 @@ def login():
         #successful login
         if result == 0:  
             session["username"] = request.form.get("username_login","")
-            return redirect("profile.html")
+            return redirect("route.html")
         #failed attempt!
         else:
             return render_template("home.html",type_login=1)
@@ -48,17 +48,19 @@ def logout():
 @app.route("/route")
 def route():
     if request.method=="POST":
-        start = request.form["start"]
-        end = request.form["end"]
+        start = request.form.get("start","")
+        end = request.form.get("end","")
         #fields were left blank
         if start == None or end == None:
             return render_template("route.html", error=1)
         stationList = hopstopScraper.getRoutes(start, end)
-        results = yelpAPI.process(stationList)
+        results = []
+        for stations in stationList:
+            results.append(yelp.search("food",stationList))
+        session["results"] = results
         return redirect("/results")
     else:
         return render_template("route.html")
-
 
 
 if __name__ == "__main__":

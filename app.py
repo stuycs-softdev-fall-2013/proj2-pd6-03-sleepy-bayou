@@ -19,17 +19,17 @@ def register():
         result=utils.createUser(request.form.get("username","").lower(),request.form.get("password",""))
             #success. Login page will have confirmation message
         if result==0:
-            return redirect("/login?type=2")
+            return redirect("route.html")
             #username is already taken
         elif result==1:
-            return render_template("register.html",type=1)
+            return render_template("home.html",type=1)
             #username or pw is invalid
         else: 
-            return render_template("register.html",type=2)
+            return render_template("home.html",type=2)
         #pw mismatch
     else:
         print("foo")
-        return render_template("register.html",type=3)
+        return render_template("home.html",type=3)
 @app.route("/login",methods=['GET','POST'])
 def login():
     if request.method=="POST":
@@ -38,18 +38,18 @@ def login():
         #successful login
         if result == 0:  
             session["username"] = request.form.get("username","")
-            return redirect("/?type=2")
+            return redirect("profile.html")
         #failed attempt!
         else:
-            return render_template("login.html",type=1)
+            return render_template("home.html",type=1)
     else:
         if request.args.get("type") == "2":
-            return render_template("login.html",type=2)
-        return render_template("login.html")
+            return render_template("profile.html",type=2)
+        return render_template("profile.html")
 @app.route("/logout")
 def logout():
     session.pop("username",None)
-    return redirect("/?type=2")
+    return redirect("home.html")
 
 @app.route("/route")
 def route():

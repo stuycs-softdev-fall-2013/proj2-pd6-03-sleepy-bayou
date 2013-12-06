@@ -14,14 +14,6 @@
       <h1 id="heading"> TRIP PLANNER </h1>
       <br>
       <p id="top-para"> New York has thousands of restaurants. Get out there and find someplace new! </p>
-      {% if "username" in session %}
-      <!--Code should be added here-->
-      <!--Search Now-->
-      <!--User Profile (OPTIONAL)-->
-      <!--About the code (optional, but easy)-->
-
-
-      {% else %}
       <p id="top-para2">Please login or register to discover all the restaurants waiting for you on your daily routes! </p>
       </div>
  
@@ -50,6 +42,13 @@
 		  </div>
 		</div> <!--field-->
 		<input type = "submit" class="ui blue submit button" value="Login"/>
+		{% if type==1 %}
+		<div class="ui error form segment">
+		  <div class="ui error message">
+		    <p id="error"> Your password did not match your username. Please try again.</p>
+		  </div>
+		</div>
+		{% endif %}
 	      </form>
 	  </div> <!--ui form segment-->
 	  </div> <!--column-->
@@ -86,35 +85,33 @@
 		   </div>
 		 </div>
 		 <input type="submit" class="ui blue submit button" value="Submit" />
+		 {% if type==1 %}
+		 <div class="ui error form segment">
+		   <div class="ui error message">
+		     <p id="error">Sorry, this username is already taken! Please choose another.</p>
+		   </div>
+		 </div>
+		 
+		 {% elif type==2 %}
+		 <div class="ui error form segment">
+		   <div class="ui error message">
+		     <p id="error">Your username must be at least 4 character long and your password must be at least 6 characters long.</p>
+		   </div>
+		 </div>
+		 
+		 {% elif type==3 %}
+		 <div class="ui error form segment">
+		   <div class="ui error message">
+		     <p id="error">Your passwords did not match. Please try again.</p>
+		   </div>
+		 </div>
+		 {% endif %}
 		</div> <!--field-->
 	      </form>
 	    </div> <!--ui form segment-->
 	  </div> <!--center aligned column-->
 	</div> <!-- equal height row -->
       </div> <!-- two column-->
-      
-      {% if type==1 %}
-    <div class="ui error form segment">
-      <div class="ui error message">
-	<p id="error">Sorry, this username is already taken! Please choose another.</p>
-      </div>
-    </div>
-
-    {% elif type==2 %}
-    <div class="ui error form segment">
-      <div class="ui error message">
-	<p id="error">Your username must be at least 4 character long and your password must be at least 6 characters long.</p>
-      </div>
-    </div>
-    
-    {% elif type==3 %}
-    <div class="ui error form segment">
-      <div class="ui error message">
-	<p id="error">Your passwords did not match. Please try again.</p>
-      </div>
-    </div>
-	{% endif %}
 	
-    {% endif %}
     </body>
   

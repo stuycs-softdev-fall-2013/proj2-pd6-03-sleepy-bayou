@@ -16,7 +16,7 @@ def createUser(username, password):
         return 2
     if not userExists(username):
         ui = db.Collections.count()+1
-        db.Collections.insert({'id':ui,'username':username, 'password':password})
+        db.Collections.insert({'id':ui,'username':username, 'password':password, 'preferences': []})
         return 0
     else:
         return 1

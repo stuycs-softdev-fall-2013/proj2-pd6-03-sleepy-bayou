@@ -20,3 +20,6 @@ def createUser(username, password):
         return 0
     else:
         return 1
+
+def addToPreferences(username, term):
+    db.Collections.find(username)['preferences'].append(term)

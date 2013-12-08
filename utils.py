@@ -23,3 +23,6 @@ def createUser(username, password):
 
 def addToPreferences(username, term):
     db.Collections.find(username)['preferences'].append(term)
+
+def removeFromPreferences(username, term):
+    db.Collections.find(username)['preferences'].remove(term)

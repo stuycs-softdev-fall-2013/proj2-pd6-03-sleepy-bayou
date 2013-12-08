@@ -18,7 +18,8 @@
 
   {% if "username" in session %}
   <h1> Input Your Route! </h1>
-
+  <div class="ui two column page grid">
+    <div class="column">
 	<div class="ui form segment">
 	  <form action="/route", method="post">
 	    <label> Starting Point </label>
@@ -41,7 +42,40 @@
 	    <input type="submit" class="ui blue submit button" value="Submit"/>
 	  </form>
 	</div> <!--ui form segment-->
-	</div>
+     </div> <!-- column-->
+    
+    <div class="column">
+      <div class="ui vertically divided grid">
+	<div class="row">
+	  <div class="ui form">
+	    <div class="ui checkbox">
+	      <input name="Add to Preferences!" type="checkbox">
+	    </div>
+	    <div class="field">
+	      <label>I'm in the mood for...</label>
+	      <input type="text">
+	    </div>
+	    <div class="ui blue submit button"> Search </div>
+	  </div> <!--ui form-->
+	</div> <!-- row -->
+	
+	<div class="row">
+	  <div class="ui selection dropdown">
+	    <input name="Preferences" type="hidden">
+	    <div class="text"> Preferences </div>
+	    <i class="dropdown icon"> </i>
+	    <div class="menu">
+	    {% set count = 0 %}
+	    {% for x in preferences %}
+	    <div class="item" data-value= count }> x </div>
+	    {% endfor %}
+	    </div> <!--menu-->
+	  </div> <!--ui selection dropdown-->
+	  <div class="ui blue submit button"> Search </div>
+	</div> <!--row-->
+      </div> <!--column-->
+     </div> <!--ui two column page grid-->
+ 
       
 
   {% else %}

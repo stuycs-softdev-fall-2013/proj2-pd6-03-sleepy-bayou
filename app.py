@@ -36,7 +36,7 @@ def login():
         #successful login
         if result == 0:  
             session["username"] = request.form.get("username_login","")
-            return redirect("route.html")
+            return redirect("/route")
         #failed attempt!
         else:
             return render_template("home.html",type_login=1)
@@ -45,7 +45,7 @@ def login():
 @app.route("/logout")
 def logout():
     session.pop("username",None)
-    return redirect("home.html")
+    return redirect("/")
 
 @app.route("/route",methods=["GET","POST"])
 def route():

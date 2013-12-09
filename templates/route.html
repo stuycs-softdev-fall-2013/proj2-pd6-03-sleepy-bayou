@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<link href="{{url_for('static', filename='route.css')}}" rel="stylsheet">
+<link href="{{url_for('static', filename='route.css')}}" rel="stylesheet">
 <div id="bg">
 <form method = "POST">
  <style>
@@ -62,7 +62,7 @@
 	
 	 <div class="row">
 	   <div class="ui selection dropdown">
-	     <input name="Preferences" type="hidden">
+	     <input name="Preferences">
 	     <label> Preferences </label>
 	     <i class="dropdown icon"></i>
 	     <div class="menu">
@@ -90,7 +90,9 @@
    </div>
   {% endif %}
 </form>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzb-imYEF9wzQX6r8mTanmjR3U7kZvGaw&sensor=false&libraries=places"></script>
+
 <script>
   var placeSearch, autocomplete;
   initialize = function() {

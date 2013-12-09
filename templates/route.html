@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
+<link href="{{url_for('static', filename='route.css')}}" rel="stylsheet">
 <div id="bg">
 <form method = "POST">
  <style>
@@ -46,8 +48,8 @@
     
     <div class="column">
       <div class="ui vertically divided grid">
+	<div class="ui form">
 	<div class="row">
-	  <div class="ui form">
 	    <div class="ui checkbox">
 	      <input name="preferences" type="checkbox">
 	      <label> Add to Preferences! </label>
@@ -56,29 +58,29 @@
 	      <label>I'm in the mood for...</label>
 	      <input type="text">
 	    </div>
-	    <div class="ui blue submit button"> Search </div>
-	  </div> <!--ui form-->
-	</div> <!-- row -->
+	 </div> <!--row-->
 	
-	<div class="row">
-	  <div class="ui selection dropdown">
-	    <input name="Preferences" type="hidden">
-	    <label> Preferences </label>
-	    <i class="dropdown icon"></i>
-	    <div class="menu">
-	    {% set count = 0 %}
-	    {% for x in preferences %}
-	    <div class="item" data-value= count }> x </div>
-	    {% endfor %}
-	    <div class="item active" data-value="-1"> Preferences </div>
-	    </div> <!--menu-->
-	  </div> <!--ui selection dropdown-->
-	  <div class="ui blue submit button"> Search </div>
-	</div> <!--row-->
-      </div> <!--column-->
-     </div> <!--ui two column page grid-->
+	 <div class="row">
+	   <div class="ui selection dropdown">
+	     <input name="Preferences" type="hidden">
+	     <label> Preferences </label>
+	     <i class="dropdown icon"></i>
+	     <div class="menu">
+	       {% set count = 0 %}
+	       {% for x in preferences %}
+	       <div class="item" data-value= count }> x </div>
+	       {% endfor %}
+	       <div class="item active" data-value="-1"> Preferences </div>
+	     </div> <!--menu-->
+	   </div> <!--ui selection dropdown-->
+	   <div class="ui blue submit button" id="search"> Search </div>
+	 </div> <!--row-->
+	</div> <!--form-->
+      </div> <!--ui vertically divided grid-->
+    </div> <!--column-->	
+  </div> <!--ui two column page grid-->
  
-      
+  
 
   {% else %}
    <div class="ui error form segment">

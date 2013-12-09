@@ -1,6 +1,12 @@
 #id
 {
-background: url(static/route.jpg);
+background: url(/static/route.jpg);
 background-size: 100% 100%;
 background-repeat: no-repeat;
+}
+
+#search
+{
+position: relative;
+right: 500px;
 }

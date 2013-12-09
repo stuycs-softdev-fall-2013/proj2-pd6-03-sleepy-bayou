@@ -88,17 +88,15 @@
 </form>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzb-imYEF9wzQX6r8mTanmjR3U7kZvGaw&sensor=false&libraries=places"></script>
 <script>
-var placeSearch, autocomplete;
-initialize = function() {
+  var placeSearch, autocomplete;
+  initialize = function() {
   document.getElementById("locationField").addEventListener ("focus",geolocate, false);
   new google.maps.places.Autocomplete((document.getElementById('autocomplete')),{ types: ['geocode'] });
   document.getElementById("locationField2").addEventListener ("focus",geolocate, false);
   new google.maps.places.Autocomplete((document.getElementById('autocomplete2')),{ types: ['geocode'] });
-}
-geolocate = function(){
-}
-window.onload = initialize;
-
-
-    </script>  
+  }
+  geolocate = function(){
+  }
+  window.onload = initialize;
+</script>  
 {% endblock %}

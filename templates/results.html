@@ -6,9 +6,19 @@
   </head>
   <body>
     <ul id="Results">
-      Results
-      {% for result in results %}
-      <li> {{result}} </li>
+      Results:
+      {% for i in range(results|length) %}
+      <li> 
+	{{stations[i]}} 
+	<ul>
+	  {% for result in results[i] %}
+	  <li>
+	    {{result}}
+	  </li>
+	  {% endfor %}
+	</ul>
+
+      </li>
       {% endfor %}
     </ul>
   </body>

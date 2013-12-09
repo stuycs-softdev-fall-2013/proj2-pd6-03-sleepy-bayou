@@ -60,15 +60,18 @@ def route():
             return render_template("route.html", error=1)
         stationList = hopstopScraper.getRoutes(start, end)
         results = []
+        stations= []
         for station in stationList:
             print station
             try: 
                 yelplist = yelp.search("food",station)
                 results.append(yelplist)
+                stations.append(station)
             except KeyError:
                 print "Yelp did not find any matches for this station"
             
         print results
+        session["stations"]= stations
         session["results"] = results
         return redirect("results")
     else:
@@ -80,7 +83,7 @@ def results():
         return redirect("route")
     else:
         
-        return render_template("results.html", results=session["results"])
+        return render_template("results.html", results=session["results"], stations=session["stations"])
 
 if __name__ == "__main__":
     app.run(debug = True)

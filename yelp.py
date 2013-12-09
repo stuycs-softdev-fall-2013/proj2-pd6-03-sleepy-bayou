@@ -29,6 +29,7 @@ def search(term, address):
             conn.close()
     except urllib2.HTTPError,error:
         response=json.load(error)
+    results = []
     for places in response["businesses"]:
-        print places["name"]
-
+        results.append(places["name"])
+    return results

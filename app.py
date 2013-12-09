@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import render_template, redirect, url_for, session, request
 import utils
+import yelp
+import hopstopScraper
 app = Flask(__name__)
 app.secret_key = "SUBMIT!"
 
@@ -45,23 +47,35 @@ def logout():
     session.pop("username",None)
     return redirect("home.html")
 
-@app.route("/route")
+@app.route("/route",methods=["GET","POST"])
 def route():
     if request.method=="POST":
+        print("1")
         start = request.form.get("start","")
         end = request.form.get("end","")
+        print(start)
+        print(end)
         #fields were left blank
         if start == None or end == None:
             return render_template("route.html", error=1)
         stationList = hopstopScraper.getRoutes(start, end)
         results = []
-        for stations in stationList:
-            results.append(yelp.search("food",stationList))
+        for station in stationList:
+            print station
+            results.append(yelp.search("food",station))
+        print results
         session["results"] = results
-        return redirect("/results")
+        return redirect("results")
     else:
         return render_template("route.html")
 
+@app.route("/results")
+def results():
+    if "results" not in session:
+        return redirect("route")
+    else:
+        
+        return render_template("results.html", results=session["results"])
 
 if __name__ == "__main__":
     app.run(debug = True)

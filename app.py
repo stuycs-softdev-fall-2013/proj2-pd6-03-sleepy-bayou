@@ -62,7 +62,12 @@ def route():
         results = []
         for station in stationList:
             print station
-            results.append(yelp.search("food",station))
+            try: 
+                yelplist = yelp.search("food",station)
+                results.append(yelplist)
+            except KeyError:
+                print "Yelp did not find any matches for this station"
+            
         print results
         session["results"] = results
         return redirect("results")

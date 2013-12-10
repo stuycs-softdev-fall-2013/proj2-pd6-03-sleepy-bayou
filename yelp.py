@@ -32,4 +32,7 @@ def search(term, address):
     results = []
     for places in response["businesses"]:
         results.append(places["name"])
+        results.append(places["phone"])
+        results.append(places["display_address"])
+        results.append(places["rating"])
     return results

@@ -1,100 +1,103 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<link href = "{{url_for('static', filename='route.css')}}" rel="stylesheet">
 
-<link href="{{url_for('static', filename='route.css')}}" rel="stylesheet">
-<div id="bg">
-<form method = "POST">
- <style>
-      html, body, #map-canvas {
-        height: 100%;
-        margin: 0px;
-        padding: 0px;
-      }
-    </style>
-    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+<style>
+  html, body, #map-canvas
+  {
+  height:100%;
+  margin: 0px;
+  padding: 0px;
+  }
+</style>
 
-  {% if "error" == 1 %}
-   <p class="error"> One or more fields were left blank. </p>
-  {% endif %}
-
-  {% if "username" in session %}
-  <h1> Input Your Route! </h1>
-  <div class="ui two column page grid">
-    <div class="column">
+<div class="bg">
+    {% if "username" in session %}
+    <h1> Input Your Route! </h1>
+    <form action="/results", method="post">
 	<div class="ui form segment">
-	  <form action="/route", method="post">
-	    <label> Starting Point </label>
-	    <div class="ui left labeled icon input" id="locationField">
-	      <input name="start" id="autocomplete" type="text"/>
-	      <i class="location icon"></i>
-	      <div class="ui corner label">
-		<i class="asterisk icon"></i>
+	  <div class="ui two column page grid">
+	    <div class="column">
+	      
+	      <label> Starting Point </label>
+	      <div class="ui left labeled icon input" id="locationField">
+		<input name="start" id="autocomplete" type="text"/>
+		<i class="location icon"></i>
+		<div class="ui corner label">
+		  <i class="asterisk icon"></i>
+		</div>
 	      </div>
-	    </div>
-
-	    <label> End Point </label>
-	    <div class="ui left labeled icon input" id="locationField2">
-	      <input name="end" id="autocomplete2" type="text"/>
-	      <i class="flag icon"></i>
-	      <div class="ui corner label">
-		<i class="asterisk icon"></i>
+	      <br>
+	      <label> End Point </label>
+	      <div class="ui left labeled icon input" id="locationField2">
+		<input name="end" id="autocomplete2" type="text"/>
+		<i class="flag icon"></i>
+		<div class="ui corner label">
+		  <i class="asterisk icon"></i>
+		</div>
 	      </div>
-	    </div>
-	    <input type="submit" class="ui blue submit button" value="Submit"/>
-	  </form>
+	      
+	    </div> <!--column-->
+	    
+	    <div class="column">
+	      <div class="ui two row page grid">
+		<div class="row">
+		  <label> I'm in the mood for...</label>
+		  <div class="field">
+		    <input type="text">
+		</div>
+		  
+		  <div class="ui checkbox">
+		    <input name="preferences" type="checkbox">
+		  </div>
+		  <label> Add to Preferences! </label>
+		</div> <!--row-->
+	      
+		<div class="ui horizontal divider">
+		  Or
+		</div>
+		
+		<div class="row">
+		  <label> Saved Preferences </label>
+		  <div class="ui selection dropdown">
+		<input name="preferences">
+		<i class="dropdown icon"></i>
+		<div class="menu">
+		  
+		  {% set count=0 %}
+		  {% for x in preferences %}
+		  <div class="item" data-value = count> x </div>
+		  {% endfor %}
+		  
+		  <div class="item active" data-value="-1"> Preferences</div>
+		</div> <!--menu-->
+		  </div> <!--ui selection dropdown-->
+	      <div class="ui blue submit button" id="search"> Search </div>
+		</div> <!--row-->
+	      </div> <!--vertically divided grid-->
+	    </div> <!--column-->
 	</div> <!--ui form segment-->
-     </div> <!-- column-->
+    </form>
     
-    <div class="column">
-      <div class="ui vertically divided grid">
-	<div class="ui form">
-	<div class="row">
-	    <div class="ui checkbox">
-	      <input name="preferences" type="checkbox">
-	      <label> Add to Preferences! </label>
-	    </div>
-	    <div class="field">
-	      <label>I'm in the mood for...</label>
-	      <input type="text">
-	    </div>
-	 </div> <!--row-->
-	
-	 <div class="row">
-	   <div class="ui selection dropdown">
-	     <input name="Preferences">
-	     <label> Preferences </label>
-	     <i class="dropdown icon"></i>
-	     <div class="menu">
-	       {% set count = 0 %}
-	       {% for x in preferences %}
-	       <div class="item" data-value= count }> x </div>
-	       {% endfor %}
-	       <div class="item active" data-value="-1"> Preferences </div>
-	     </div> <!--menu-->
-	   </div> <!--ui selection dropdown-->
-	   <div class="ui blue submit button" id="search"> Search </div>
-	 </div> <!--row-->
-	</div> <!--form-->
-      </div> <!--ui vertically divided grid-->
-    </div> <!--column-->	
-  </div> <!--ui two column page grid-->
- 
-  
+    </div> <!--ui two column grid-->
+    
+    {% else %}
+    <div class="ui error form segment">
+      <div class="ui error message">
+	<p>
+	Please login first! If you don't have an account yet, <a href="/"> REGISTER </a> now!
+	</p>
+      </div>
+    </div>
 
-  {% else %}
-   <div class="ui error form segment">
-     <div class="ui error message">
-       <p> Please login first! If you don't have an account yet, please <a href="/"> REGISTER </a> now!</p>
-     </div>
-   </div>
-  {% endif %}
-</form>
+    {% endif %}
+</div> <!--bg-->
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzb-imYEF9wzQX6r8mTanmjR3U7kZvGaw&sensor=false&libraries=places"></script>
 
 <script>
-  var placeSearch, autocomplete;
+var placeSearch, autocomplete;
   initialize = function() {
   document.getElementById("locationField").addEventListener ("focus",geolocate, false);
   new google.maps.places.Autocomplete((document.getElementById('autocomplete')),{ types: ['geocode'] });

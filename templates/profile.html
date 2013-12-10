@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> User Profile </title>
+	<style> 
+	.hidden{
+		opacity: 0;
+	}
+	.visible{
+		opacity: 1;
+	}
+	</style>
+</head>
+
+<body>
+	{% if "username" in session %}
+		{{"username"}}'s Profile:
+		<button type="button" id="changepw">Change Password</button>
+		<div id="change-pw-field" class="hidden"> 
+			<form>
+				Enter Old Password: <input type="password" name="pw-old"><br>
+				Enter New Password: <input type="password" name="pw-new"><br>
+				Reenter New Password: <input type="password" name="confirm-new-pw"><br>
+				<input type="button" value="Change Password"> 
+			</form>
+		</div>
+		<form>
+		</form>
+		
+	{% else %}
+	
+	{% endif %}
+	<script>
+		function showChangePW(){
+			if (document.getElementById("changepw").innerHTML==="Change Password"){
+				document.getElementById("change-pw-field").className="visible";
+				document.getElementById("changepw").innerHTML="Hide";
+			}
+			else{
+				document.getElementById("change-pw-field").className="hidden";
+				document.getElementById("changepw").innerHTML="Change Password";
+			}
+		}
+		
+		//Init:
+		document.getElementById("changepw").addEventListener("click", showChangePW);
+	</script>
+</body>
+</html>

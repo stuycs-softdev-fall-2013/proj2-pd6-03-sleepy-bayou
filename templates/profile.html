@@ -27,11 +27,21 @@
 		<form>
 		</form>
 		<h2>Search Preferences:</h2>
-		  <ul>
-		    {% for item in user.preferences %}
-                         <li>{{item}}</li>
-		    {% endfor %}
-		  </ul>
+		<form action="">
+                    <input type="checkbox" name="preference" value="Italian"> Italian food <br>
+                    <input type="checkbox" name="preference" value="French"> French food <br>
+		    <input type="checkbox" name="preference" value="Chinese"> Chinese food <br>
+		     <input type="checkbox" name="preference" value="Japanese"> Japanese food <br>
+		    <input type="checkbox" name="preference" value="Spanish"> Spanish food <br>
+	            <input type="checkbox" name="preference" value="Fast"> Fast food <br>
+		    <input type="checkbox" name="preference" value="Dessert"> Dessert <br>
+		    <input type="checkbox" name="preference" value="Ethiopian"> Ethiopian food <br>
+                    <input type="checkbox" name="preference" value="Middle eastern"> Middle eastern food <br>
+                   <input type="checkbox" name="preference" value="Polish"> Polish food <br>
+                   <input type="checkbox" name="preference" value="Thai"> Thai food <br>
+                   <input type="checkbox" name="preference" value="Caribbean"> Caribbean food <br>		
+		</form>
+
 	{% else %}
 	<p>No user currently logged in</p>
 	{% endif %}

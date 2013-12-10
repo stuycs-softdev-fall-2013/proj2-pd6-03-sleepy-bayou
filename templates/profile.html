@@ -14,19 +14,19 @@
 
 <body>
 	{% if "username" in session %}
-		<h1>{{"username"}}'s Profile:</h1>
+		<h1 class="ui header">{{"username"}}'s Profile:</h1>
 		<button type="button" id="changepw">Change Password</button>
 		<div id="change-pw-field" class="hidden"> 
 			<form>
-				Enter Old Password: <input type="password" name="pw-old"><br>
-				Enter New Password: <input type="password" name="pw-new"><br>
-				Reenter New Password: <input type="password" name="confirm-new-pw"><br>
-				<input type="button" value="Change Password"> 
+				Enter Old Password: <div class="ui input focus"><input type="password" name="pw-old"></div><br>
+				Enter New Password: <div class="ui input focus"><input type="password" name="pw-new"></div><br>
+				Reenter New Password: <div class="ui input focus"><input type="password" name="confirm-new-pw"></div><br>
+				<div class="ui button">Change Password</div> 
 			</form>
 		</div>
 		<form>
 		</form>
-		<h2>Search Preferences:</h2>
+		<h2 class="ui header">Search Preferences:</h2>
 		<form action="">
                     <input type="checkbox" name="preference" value="Italian"> Italian food <br>
                     <input type="checkbox" name="preference" value="French"> French food <br>
@@ -39,7 +39,8 @@
                     <input type="checkbox" name="preference" value="Middle eastern"> Middle eastern food <br>
                    <input type="checkbox" name="preference" value="Polish"> Polish food <br>
                    <input type="checkbox" name="preference" value="Thai"> Thai food <br>
-                   <input type="checkbox" name="preference" value="Caribbean"> Caribbean food <br>		
+                   <input type="checkbox" name="preference" value="Caribbean"> Caribbean food <br>
+		   <div class="ui button">Submit Preferences</div>
 		</form>
 
 	{% else %}

@@ -2,7 +2,19 @@ from pymongo import MongoClient
 from flask import session
 c = MongoClient()
 db = c.users
-
+default_prefs = {
+    "Italian":False,
+    "French":False,
+    "Chinese":False,
+    "Japanese":False,
+    "Spanish":False,
+    "Fast":False,
+    "Dessert":False,
+    "Ethiopian":False,
+    "Middle-Eastern":False,
+    "Polish":False,
+    "Thai":False,
+    "Caribbean":False}
 def authorize(username, password):
     user = db.Collections.find_one({'username':username, 'password':password})
     if user:
@@ -16,13 +28,21 @@ def createUser(username, password):
         return 2
     if not userExists(username):
         ui = db.Collections.count()+1
-        db.Collections.insert({'id':ui,'username':username, 'password':password, 'preferences': []})
+        db.Collections.insert({'id':ui,'username':username, 'password':password, 'preferences': default_prefs})
         return 0
     else:
         return 1
+def changePW(username, oldpw, newpw):
+    user = db.Collections.find_one({'username':username, 'password':oldpw})
+    if user:
+        db.Collections.update({'username':username},{'$set':{'password':newpw}})
+        return 0
+    return 1
 
-def addToPreferences(username, term):
-    db.Collections.find(username)['preferences'].append(term)
+def updatePrefs(username, prefs):
+    db.Collections.update({'username':username},{'$set':{'preferences':prefs}})
 
-def removeFromPreferences(username, term):
-    db.Collections.find(username)['preferences'].remove(term)
+def getPrefs(username):
+
+    return db.Collections.find_one({'username':username})["preferences"]
+

@@ -16,35 +16,56 @@
 	{% if "username" in session %}
 		<h1 class="ui header">{{session["username"]}}'s Profile:</h1>
 		<button type="button" id="changepw">Change Password</button>
+		{% if type_change=="0" %}
+	        <p style="color:green"> Password Change Successful! </p>
+		{% elif type_change=="1" %}
+	        <p style="color:red"> Wrong Password! </p>
+		{% elif type_change=="2" %}
+	        <p style="color:red"> New Passwords Don't Match! </p>
+		{% endif %}
 		<div id="change-pw-field" class="hidden"> 
-			<form>
+			<form action="changePassword" method="post">
 				Enter Old Password: <div class="ui input focus"><input type="password" name="pw-old"></div><br>
 				Enter New Password: <div class="ui input focus"><input type="password" name="pw-new"></div><br>
 				Reenter New Password: <div class="ui input focus"><input type="password" name="confirm-new-pw"></div><br>
-				<div class="ui button">Change Password</div> 
+				<input type="submit" class="ui button" value="Change Password"></input> 
 			</form>
 		</div>
 		<h2 class="ui header">Search Preferences:</h2>
-		<form action="">
-                    <input type="checkbox" name="preference" value="Italian"> Italian food <br>
+		
+		<form action="setPrefs" method="post">
+                  {% for key, value in prefs.iteritems() %}
+		  {% if value == True %}
+		  <input type="checkbox" name="preference" checked value={{key}}> {{key}} Food <br>
+		  {% else %}
+		  <input type="checkbox" name="preference" value={{key}}> {{key}} Food <br>
+		  {% endif %}
+		  {% endfor %}
+		  <input type="submit" value="Update Preferences">
+		  
+
+		  <!--
+		    <input type="checkbox" name="preference" value="Italian"> Italian food <br>
                     <input type="checkbox" name="preference" value="French"> French food <br>
 		    <input type="checkbox" name="preference" value="Chinese"> Chinese food <br>
-		     <input type="checkbox" name="preference" value="Japanese"> Japanese food <br>
+		    <input type="checkbox" name="preference" value="Japanese"> Japanese food <br>
 		    <input type="checkbox" name="preference" value="Spanish"> Spanish food <br>
 	            <input type="checkbox" name="preference" value="Fast"> Fast food <br>
 		    <input type="checkbox" name="preference" value="Dessert"> Dessert <br>
 		    <input type="checkbox" name="preference" value="Ethiopian"> Ethiopian food <br>
                     <input type="checkbox" name="preference" value="Middle eastern"> Middle eastern food <br>
-                   <input type="checkbox" name="preference" value="Polish"> Polish food <br>
-                   <input type="checkbox" name="preference" value="Thai"> Thai food <br>
-                   <input type="checkbox" name="preference" value="Caribbean"> Caribbean food <br>
-		   <div class="ui button">Submit Preferences</div>
+                    <input type="checkbox" name="preference" value="Polish"> Polish food <br>
+                    <input type="checkbox" name="preference" value="Thai"> Thai food <br>
+                    <input type="checkbox" name="preference" value="Caribbean"> Caribbean food <br>
+		-->
 		</form>
+		
 
 	{% else %}
 	<p>No user currently logged in</p>
 	{% endif %}
 	<script>
+
 		function showChangePW(){
 			if (document.getElementById("changepw").innerHTML==="Change Password"){
 				document.getElementById("change-pw-field").className="visible";

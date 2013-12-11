@@ -14,7 +14,7 @@
 <div class="bg">
     {% if "username" in session %}
     <h1> INPUT YOUR ROUTE </h1>
-    <form action="/results", method="post">
+    <form action="/route", method="post">
 	<div id="mainform" class="ui form segment">
 	  
 	  <div class="field">
@@ -41,7 +41,7 @@
 
 	   <div class="field">
 	     <label> I'm in the mood for...</label>
-	     <input type="text" id="pref">
+	     <input type="text" name="pref">
 	     <br>
 	     <label>
 	       Add to Preferences! 
@@ -53,7 +53,7 @@
 	   <div class="field">
 	     <label> Look through your saved preferences! </label>
 	       <div class="menu">
-		 <select id = "pref2"> 
+		 <select name = "pref2"> 
 		 {% for key, value in preferences.iteritems() %}
 		 {% if value == True %}
 		 <option value={{key}}> {{key}} </option>

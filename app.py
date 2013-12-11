@@ -62,6 +62,8 @@ def changePassword():
 def route():
     if request.method=="POST":
         print("1")
+        print request.form.get("pref","")
+        print request.form.get("pref","")==""
         start = request.form.get("start","")
         end = request.form.get("end","")
         print(start)
@@ -72,15 +74,18 @@ def route():
         stationList = hopstopScraper.getRoutes(start, end)
         results = []
         stations= []
-        if request.form.get("pref","") != None:
+        if request.form.get("pref","") != "":
             pref = request.form.get("pref","")
-            utils.updatePrefs(session["username"],getPrefs(session["username"])[pref]=True)
-        elif request.form.get("pref2","") !=None:
+            oldprefs = utils.getPrefs(session["username"])
+            oldprefs[pref]=True
+            utils.updatePrefs(session["username"],oldprefs)
+        elif request.form.get("pref2","") != "":
             pref = request.form.get("pref","")
         else: 
             pref = "food"
-        for station in stationList:
+        for station in stationList: 
             print station
+            print pref
             try: 
                 yelplist = yelp.search(pref,station)
                 results.append(yelplist)

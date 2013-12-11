@@ -13,9 +13,9 @@
 
 <div class="bg">
     {% if "username" in session %}
-    <h1> Input Your Route! </h1>
+    <h1> INPUT YOUR ROUTE </h1>
     <form action="/results", method="post">
-	<div class="ui form segment">
+	<div id="mainform" class="ui form segment">
 	  
 	  <div class="field">
 	    <label> Starting Point </label>
@@ -80,6 +80,9 @@
     </div>
 
     {% endif %}
+<br>
+<br>
+<br>
 </div> <!--bg-->
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzb-imYEF9wzQX6r8mTanmjR3U7kZvGaw&sensor=false&libraries=places"></script>

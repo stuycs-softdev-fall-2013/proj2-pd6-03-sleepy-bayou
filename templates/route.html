@@ -41,31 +41,30 @@
 
 	   <div class="field">
 	     <label> I'm in the mood for...</label>
-	     <input type="text">
-	     
-	     <div class="ui checkbox">
-	       <input id="unique-id" name="preferences" type="checkbox">
-	     </div>
-	     <label for="unique-id"> Add to Preferences! </label>
+	     <input type="text" id="pref">
+	     <br>
+	     <label>
+	       Add to Preferences! 
+	       <input type="checkbox" name="preference" value="add">
+
+	     </label>
 	   </div>
 
 	   <div class="field">
 	     <label> Look through your saved preferences! </label>
-	     <div class="ui selection dropdown">
-	       <input name="preferences"/>
-	       <i class="dropdown icon"></i>
 	       <div class="menu">
-		 
-		 {% set count = 0 %}
-		 {% for x in preferences %}
-		 <div class="item" data-value=count> x </div>
+		 <select id = "pref2"> 
+		 {% for key, value in preferences.iteritems() %}
+		 {% if value == True %}
+		 <option value={{key}}> {{key}} </option>
+		 {% endif %}
 		 {% endfor %}
 
 		 <div class="item active" data-value="-1"> Preferences</div>
 	       </div> <!--menu-->
 	     </div> <!--ui selection dropdown-->
-	   </div> 
-	   <div class="ui blue submit button" id="search"> Search </div>
+	   <input type="submit" class="ui blue submit button" id="search" value="Search"/>
+	   </div> <!--field-->
 	 </div> <!--ui form segment-->
 	 <div name="1" id="0"></div>
 	 <div name="2" id="0"></div>
@@ -104,6 +103,7 @@ var placeSearch, autocomplete;
   window.onload = initialize;
 
 ('.ui.dropdown')
+<<<<<<< HEAD
 .dropdown()
 
 </script>
@@ -134,6 +134,9 @@ document.getElementByName("2").id = latlng2;
 
 window.onload = showAddress;
 
+=======
+.dropdown();
+>>>>>>> 0078f06a432e13379787cdc95fb5103f7fdbd65b
 </script>  
 
 

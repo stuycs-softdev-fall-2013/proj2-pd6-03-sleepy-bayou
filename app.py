@@ -61,6 +61,7 @@ def changePassword():
         
 @app.route("/route",methods=["GET","POST"])
 def route():
+<<<<<<< HEAD
 
     print("1")
     start = request.form.get("1","")
@@ -88,6 +89,41 @@ def route():
     return redirect("results")
 
 
+=======
+    if request.method=="POST":
+        print("1")
+        start = request.form.get("start","")
+        end = request.form.get("end","")
+        print(start)
+        print(end)
+        #fields were left blank
+        if start == None or end == None:
+            return render_template("route.html", error=1)
+        stationList = hopstopScraper.getRoutes(start, end)
+        results = []
+        stations= []
+        if request.form.get("pref","") != None:
+            pref = request.form.get("pref","")
+            utils.updatePrefs(session["username"],getPrefs(session["username"])[pref]=True)
+        elif request.form.get("pref2","") !=None:
+            pref = request.form.get("pref","")
+        else: 
+            pref = "food"
+        for station in stationList:
+            print station
+            try: 
+                yelplist = yelp.search(pref,station)
+                results.append(yelplist)
+                stations.append(station)
+            except KeyError:
+                print "Yelp did not find any matches for this station"    
+        print results
+        session["stations"]= stations
+        session["results"] = results
+        return redirect("results")
+    else:
+        return render_template("route.html",preferences=utils.getPrefs(session["username"]))
+>>>>>>> 0078f06a432e13379787cdc95fb5103f7fdbd65b
 
 @app.route("/results")
 def results():

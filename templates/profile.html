@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title> User Profile </title>
-	<style> 
-	.hidden{
-	display:none;
-	}
-	.visible{
-	.display:block;
-	}
-	</style>
-</head>
+{% extends "layout.html"  %}
 
-<body>
+{% block content %}
+
+<style>
+.hidden{
+display:none;
+}
+
+.visible{
+.display:block;
+}
+</style>
+<div id="profilebg">
+
 	{% if "username" in session %}
 		<h1 class="ui header">{{session["username"]}}'s Profile:</h1>
-		<button type="button" id="changepw">Change Password</button>
+		<div class="ui blue submit button" id="changepw"> Change Password </div>
 		{% if type_change=="0" %}
 	        <p style="color:green"> Password Change Successful! </p>
 		{% elif type_change=="1" %}
@@ -31,6 +31,8 @@
 				<input type="submit" class="ui button" value="Change Password"></input> 
 			</form>
 		</div>
+
+		<div id="preferences">
 		<h2 class="ui header">Search Preferences:</h2>
 		
 		<form action="setPrefs" method="post">
@@ -43,6 +45,7 @@
 		  {% endfor %}
 		  <input type="submit" value="Update Preferences">
 		  
+		  </div>
 
 		  <!--
 		    <input type="checkbox" name="preference" value="Italian"> Italian food <br>
@@ -64,6 +67,9 @@
 	{% else %}
 	<p>No user currently logged in</p>
 	{% endif %}
+
+</div>
+
 	<script>
 
 		function showChangePW(){
@@ -80,5 +86,4 @@
 		//Init:
 		document.getElementById("changepw").addEventListener("click", showChangePW);
 	</script>
-</body>
-</html>
+{% endblock %}

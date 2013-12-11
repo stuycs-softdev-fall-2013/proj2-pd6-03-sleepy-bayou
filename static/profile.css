@@ -1,0 +1,11 @@
+#profilebg
+{
+background-image: url(/static/profile.jpeg);
+background-size: 100% 150%;
+background-repeat: no-repeat;
+}
+
+#id
+{
+color: white;
+}

@@ -3,6 +3,7 @@ from flask import render_template, redirect, url_for, session, request
 import utils
 import yelp
 import hopstopScraper
+import mta
 app = Flask(__name__)
 app.secret_key = "SUBMIT!"
 
@@ -60,33 +61,33 @@ def changePassword():
         
 @app.route("/route",methods=["GET","POST"])
 def route():
-    if request.method=="POST":
-        print("1")
-        start = request.form.get("start","")
-        end = request.form.get("end","")
-        print(start)
-        print(end)
-        #fields were left blank
-        if start == None or end == None:
-            return render_template("route.html", error=1)
-        stationList = hopstopScraper.getRoutes(start, end)
-        results = []
-        stations= []
-        for station in stationList:
-            print station
-            try: 
-                yelplist = yelp.search("food",station)
-                results.append(yelplist)
-                stations.append(station)
-            except KeyError:
-                print "Yelp did not find any matches for this station"
-            
-        print results
-        session["stations"]= stations
-        session["results"] = results
-        return redirect("results")
-    else:
+
+    print("1")
+    start = request.form.get("1","")
+    end = request.form.get("2","")
+    print(start)
+    print(end)
+    #fields were left blank
+    if start == None or end == None:
         return render_template("route.html")
+    stationList = mta.getStopLocations(start, end)
+    results = []
+    stations= []
+    for station in stationList:
+        print station
+        try: 
+            yelplist = yelp.search("food",station)
+            results.append(yelplist)
+            stations.append(station)
+        except KeyError:
+            return render_template("route.html")
+
+    print results
+    session["stations"]= stations
+    session["results"] = results
+    return redirect("results")
+
+
 
 @app.route("/results")
 def results():

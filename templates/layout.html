@@ -3,15 +3,15 @@
 <html lang="en">
   <head>
     <link href="{{url_for('static', filename='semantic.min.css')}}" rel="stylesheet">
-
+    <link href="{{url_for('static', filename='route.css')}}" type="text/css"  rel="stylesheet">
   </head>
 
 
   <body>
     <div class="ui menu">
-      <a class="item"> Trip Planner </a>
+      <a class="item" href="/"> Trip Planner </a>
       <div class="right menu">
-	<a class="item" href="/route">
+	<a class="item" href="/profile">
 	  <i class="home icon"></i> Profile
 	</a>
 	

@@ -66,6 +66,10 @@
 	   <input type="submit" class="ui blue submit button" id="search" value="Search"/>
 	   </div> <!--field-->
 	 </div> <!--ui form segment-->
+	 <div name="1" id="0"></div>
+	 <div name="2" id="0"></div>
+	 <div name="3" id="0"></div>
+	 <div name="4" id="0"></div>
 	</form>
 
 	      
@@ -99,7 +103,40 @@ var placeSearch, autocomplete;
   window.onload = initialize;
 
 ('.ui.dropdown')
+<<<<<<< HEAD
+.dropdown()
+
+</script>
+
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxSPW5CJgpdgO_s4yyMovOaVh_KvvhSfpvagV18eOyDWu7VytS6Bi1CWxw"
+      type="text/javascript"></script>
+<script type = "text/javascript">
+
+var geocoder;
+var result;
+latlng;
+
+function initialize2() {
+      if (GBrowserIsCompatible()) {
+        geocoder = new GClientGeocoder();
+      }
+    }
+window.onload = initialize2;
+
+function showAddress() {
+      if (geocoder) {
+        latlng = geocoder.getLatLng(document.getElementByName("start").id);
+        latlng2 = geocoder.getLatLng(document.getElementByName("end").id);
+      }
+}
+document.getElementByName("1").id = latlng;
+document.getElementByName("2").id = latlng2;
+
+window.onload = showAddress;
+
+=======
 .dropdown();
+>>>>>>> 0078f06a432e13379787cdc95fb5103f7fdbd65b
 </script>  
 
 

@@ -47,6 +47,17 @@ def logout():
     session.pop("username",None)
     return redirect("/")
 
+@app.route("/changePassword",methods=["GET","POST"])
+def changePassword():
+    if request.form.get("pw-new","")==request.form.get("confirm-new-pw",""):
+        result = utils.changePW(session["username"],request.form.get("pw-old",""),request.form.get("pw-new",""))
+        if result == 0:
+            return redirect("/profile?type=0")
+        else:
+            return redirect("/profile?type=0")
+    else:
+        return redirect("/profile?type=0")
+        
 @app.route("/route",methods=["GET","POST"])
 def route():
     if request.method=="POST":
@@ -82,12 +93,35 @@ def results():
     if "results" not in session:
         return redirect("route")
     else:
-        
         return render_template("results.html", results=session["results"], stations=session["stations"])
+
+@app.route("/setPrefs", methods=["GET","POST"])
+def setPrefs():
+    prefs = request.form.getlist("preference")
+    d={
+        "Italian":False,
+        "French":False,
+        "Chinese":False,
+        "Japanese":False,
+        "Spanish":False,
+        "Fast":False,
+        "Dessert":False,
+        "Ethiopian":False,
+        "Middle-Eastern":False,
+        "Polish":False,
+        "Thai":False,
+        "Caribbean":False}
+    
+    for pref in prefs:
+        d[pref]=True
+    utils.updatePrefs(session["username"],d)
+    return redirect("/profile")
+    
 
 @app.route("/profile")
 def profile():
-    return render_template("profile.html")
+    error=request.args.get("type")
+    return render_template("profile.html",type_change=error, prefs=utils.getPrefs(session["username"]))
 
 if __name__ == "__main__":
     app.run(debug = True)

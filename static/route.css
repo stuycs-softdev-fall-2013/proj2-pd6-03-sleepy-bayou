@@ -1,12 +1,26 @@
 .bg
 {
 background-image: url(/static/route.jpg);
-background-size: 100% 500%;
+background-size: 100% 150%;
 background-repeat: no-repeat;
+}
+
+h1
+{
+color: white;
+font-size:200%
+font-family: "Avantgarde", sans-serif;
 }
 
 #search
 {
 position: relative;
 left: 100px;
+}
+
+#mainform
+{
+position: relative;
+left: 50px;
+width: 40%
 }

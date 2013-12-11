@@ -11,7 +11,7 @@ display:none;
 .display:block;
 }
 </style>
-
+<div id="profilebg">
 
 	{% if "username" in session %}
 		<h1 class="ui header">{{session["username"]}}'s Profile:</h1>
@@ -31,6 +31,8 @@ display:none;
 				<input type="submit" class="ui button" value="Change Password"></input> 
 			</form>
 		</div>
+
+		<div id="preferences">
 		<h2 class="ui header">Search Preferences:</h2>
 		
 		<form action="setPrefs" method="post">
@@ -43,6 +45,7 @@ display:none;
 		  {% endfor %}
 		  <input type="submit" value="Update Preferences">
 		  
+		  </div>
 
 		  <!--
 		    <input type="checkbox" name="preference" value="Italian"> Italian food <br>
@@ -64,6 +67,9 @@ display:none;
 	{% else %}
 	<p>No user currently logged in</p>
 	{% endif %}
+
+</div>
+
 	<script>
 
 		function showChangePW(){

@@ -36,9 +36,9 @@
 		<form action="setPrefs" method="post">
                   {% for key, value in prefs.iteritems() %}
 		  {% if value == True %}
-		  <input type="checkbox" name="preference" checked value={{key}}> {{key}}<br>
+		  <input type="checkbox" name="preference" checked value={{key}}> {{key}} Food <br>
 		  {% else %}
-		  <input type="checkbox" name="preference" value={{key}}> {{key}}<br>
+		  <input type="checkbox" name="preference" value={{key}}> {{key}} Food <br>
 		  {% endif %}
 		  {% endfor %}
 		  <input type="submit" value="Update Preferences">

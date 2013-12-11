@@ -43,20 +43,21 @@
 	     <label> I'm in the mood for...</label>
 	     <input type="text">
 	     <br>
-	     <input type="checkbox" name="preference" value="add">
-	     <label> Add to Preferences! </label>
+	     <label>
+	       Add to Preferences! 
+	       <input type="checkbox" name="preference" value="add">
+
+	     </label>
 	   </div>
 
 	   <div class="field">
 	     <label> Look through your saved preferences! </label>
-	     <div class="ui selection dropdown">
-	       <input name="preferences"/>
-	       <i class="dropdown icon"></i>
 	       <div class="menu">
-		 
-		 {% set count = 0 %}
-		 {% for x in preferences %}
-		 <div class="item" data-value=count> x </div>
+		 <select> 
+		 {% for key, value in preferences.iteritems() %}
+		 {% if value == True %}
+		 <option value={{key}}> {{key}} </option>
+		 {% endif %}
 		 {% endfor %}
 
 		 <div class="item active" data-value="-1"> Preferences</div>
@@ -98,7 +99,7 @@ var placeSearch, autocomplete;
   window.onload = initialize;
 
 ('.ui.dropdown')
-.dropdown()
+.dropdown();
 </script>  
 
 

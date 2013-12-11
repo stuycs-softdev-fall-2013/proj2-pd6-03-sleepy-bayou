@@ -86,7 +86,8 @@ def route():
         session["results"] = results
         return redirect("results")
     else:
-        return render_template("route.html")
+        print utils.getPrefs(session["username"])
+        return render_template("route.html",preferences=utils.getPrefs(session["username"]))
 
 @app.route("/results")
 def results():

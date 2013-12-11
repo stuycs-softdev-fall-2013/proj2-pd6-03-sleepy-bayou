@@ -1,27 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title> Results </title>
-  </head>
-  <body>
-    <ul id="Results">
-      Results:
-      {% for i in range(results|length) %}
-      <li> 
-	{{stations[i]}} 
-	<ul>
-	  {% for result in results[i] %}
-	  <li>
-	    {{result}}
-	  </li>
-	  {% endfor %}
-	</ul>
+{% extends "layout.html" %}
 
-      </li>
+{% block content %}
+<h1> Your Results! </h1>
+<ul id="Results">
+  Results:
+    {% for i in range(results|length) %}
+     <li> 
+       {stations[i]}} 
+       <ul>
+       {% for result in results[i] %}
+       <li>
+	 {{result}}
+       </li>
+       {% endfor %}
+       </ul>
+
+     </li>
       {% endfor %}
-    </ul>
-  </body>
-</html>
+</ul>
+
 
     

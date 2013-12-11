@@ -72,21 +72,26 @@ def route():
         stationList = hopstopScraper.getRoutes(start, end)
         results = []
         stations= []
+        if request.form.get("pref","") != None:
+            pref = request.form.get("pref","")
+            utils.updatePrefs(session["username"],getPrefs(session["username"])[pref]=True)
+        elif request.form.get("pref2","") !=None:
+            pref = request.form.get("pref","")
+        else: 
+            pref = "food"
         for station in stationList:
             print station
             try: 
-                yelplist = yelp.search("food",station)
+                yelplist = yelp.search(pref,station)
                 results.append(yelplist)
                 stations.append(station)
             except KeyError:
-                print "Yelp did not find any matches for this station"
-            
+                print "Yelp did not find any matches for this station"    
         print results
         session["stations"]= stations
         session["results"] = results
         return redirect("results")
     else:
-        print utils.getPrefs(session["username"])
         return render_template("route.html",preferences=utils.getPrefs(session["username"]))
 
 @app.route("/results")

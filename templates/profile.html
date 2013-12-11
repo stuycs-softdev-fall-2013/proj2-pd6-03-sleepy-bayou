@@ -15,7 +15,7 @@ display:none;
 
 	{% if "username" in session %}
 		<h1 class="ui header">{{session["username"]}}'s Profile:</h1>
-		<div class="ui blue button" id="changepw"> Change Password </div>
+		<div class="ui blue submit button" id="changepw"> Change Password </div>
 		{% if type_change=="0" %}
 	        <p style="color:green"> Password Change Successful! </p>
 		{% elif type_change=="1" %}

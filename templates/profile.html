@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title> User Profile </title>
-	<style> 
-	.hidden{
-	display:none;
-	}
-	.visible{
-	.display:block;
-	}
-	</style>
-</head>
+{% extends "layout.html"  %}
 
-<body>
+{% block content %}
+
+<style>
+.hidden{
+display:none;
+}
+
+.visible{
+.display:block;
+}
+</style>
+
+
 	{% if "username" in session %}
 		<h1 class="ui header">{{session["username"]}}'s Profile:</h1>
-		<button type="button" id="changepw">Change Password</button>
+		<div class="ui blue button" id="changepw"> Change Password </div>
 		{% if type_change=="0" %}
 	        <p style="color:green"> Password Change Successful! </p>
 		{% elif type_change=="1" %}
@@ -80,5 +80,4 @@
 		//Init:
 		document.getElementById("changepw").addEventListener("click", showChangePW);
 	</script>
-</body>
-</html>
+{% endblock %}
